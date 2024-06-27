@@ -1,0 +1,63 @@
+primeros pasos para crea un proyecto basico del crud con MERN 
+todo lo que se coloque en la terminal estar seguro de ingresar al "cd node"
+1- creamos la carpeta principal para usar en visual stude code
+2- creamos ua carpeta dentro de la principal llamada "node"
+3- abrimos la terminal y ingresamos con "cd node" a la carpeta node
+4-para crear un proyecto desde cero escribimos en la terminal "npm init -y" con esto creamos el "package.json" 
+5- en el package.json debajo de: "main": "index.js",  escribimos: "type": "module", esto es para poder trabajar con react mas facil 
+--- instalacion de librerias de node ----
+6- en la terminal colocamos "npm i express cors mysql2 sequelize" y enter con esto se crea la carpeta "node_modules" y "package-lock.json" 
+---- creamos las carpetas para el modelo y controlador del proyecto-----
+7- en la carpeta de "node" creamos las subcarpetas con estos nnombres 1- controllers 2-database 3-models 4-routers
+8- luego  creamos "app.js" en la carpeta node 
+9- dentro de la carpeta "controllers" creamos un archivo llamado: "BlogController.js"
+10- en la carpeta "database" creamos un archivo "db.js"
+11- en la carpeta "models" creamos un archivo llamado "BlogModel.js"
+12- en la carpeta "routers" creamos un archivo llamado "routers.js"
+------creacion de base de datos----
+13- creamos una base de datos en este caso en mysql con el nombre"appToDo"
+14- creamos la tabla con el nombre "blog"  con los campos:
+id autoIncrement init
+title varchar(100)
+content varchar(150)
+createdAt date
+updateAt date
+15- insertamos datos de pruebas
+16- generamos la coneccion de la base de datos en la carpeta "db.js"
+
+---creacion de modelos------
+un modelo es una abstracción que representa una tabla en tu base de datos12. Es una clase que extiende Model. El modelo le dice a Sequelize varias cosas sobre la entidad que representa, como el nombre de la tabla en la base de datos y qué columnas tiene (y sus tipos de datos).
+17- en la carpeta "BlogModel.js" hace las configuraciones.
+
+---creacion del controlador-----
+18- en la carpeta "BlogController.js"
+
+---creacion de los routes-----
+19- en la carpeta "routes.js"
+
+----configuramos la aplicaion principal----------
+20- lo hacemos en el archivo "app.js"  con esto puedo hacer la prueba de conexcion: //para realizar una prueba de funcionamiento
+app.get("/",(req, res) =>{
+     res.send("Hola")
+})   
+-----para correr el programa usar "nodemon app" en la terminal
+----- para hacer pruebas de test con la extencion de visual stude code "thunder client" -----
+---probamos nuestros controladores con los siguientes metodos GET: para obtener POST: para agregar nuevo PUT: para actualizar DELETE: para eliminar----
+
+----creacion de front end con REACT -----
+1- primero salimos de la carpeta node con el comando "cd.." en la terminal 
+2- descargaremos "create react app" en la terminal colocamos "npx create-react-app nombreaplicacion" y esperamos que se complete todas las carpetas relacionadas a react 
+3- cuando ya este creada ingresamos con "cd reactfront" y-------- colocamos "npm start"--------
+4- en la carpeta de "src" abrimos una nueva carpeta llamada "blog" donde colocamos todos los modulos de la interfaz el componente o modulo de crear eliminar
+5- en la carpeta de "blog" colocamos los componentes o modulos "ShowBlogs.js" "CreateBlog.js" "EditBlog.js"   
+6- instalamos las dependencias de la aplicacion pero demeos cortar la aplicacion de react pero estar en la carpeta de reactfront "npm install axios react-router-dom"
+7- instalamos bootstrap con "npm i bootstrap" despues de ser instalado debemos importarlo entramos en la carpeta "src"  y luego en el archivo "index.js"
+----crear botones o interactividad en la pagina-----
+se realiza en la carpeta "app.js" ya que es la carpeta principal tener en cuenta que cada vez que llamamos una clase de html dentro para comunicar con css hay que llamarlo con "className" no solo class = 
+
+8-instalamos font-awesome desde cdnjs copiamos el link y lo colocamos "index.html" que se encuentra en la carpeta public  ---pegamos el link debajo de <title react app>
+----- empezamos con la creacion del front end----
+1-primero en la carpeta "blog" que creamos empezamos haciendo el codigo para "ShowBlog.js"
+------ podemos obtener codigo de bootstrap para la visulaizacion del html en esta ppagina: https://getbootstrap.com/docs/5.3/content/tables/#overview ---------
+ -----------podemos obtener los iconos en esta pagina: https://fontawesome.com/v4/icons/ ----------
+ 2- cuando terminamos con el script de "ShowBlog.js" lo debemos de llamar a la pagina principal que es "app.js"
